@@ -3,7 +3,7 @@ A command line interface application for solving structural mechanics problems.
 
 # Getting Started
 
-## Example
+## Requirements
 
 ## Data Format
 To get started the data will have to be formatted in the correct manner, for the nodes data the file has to be formatted as below.
@@ -23,9 +23,10 @@ Where node is the location at which the external force is applied, magnitude is 
 ```num,node,direction```
 
 Where num is an index number, node is the node that has a support reaction and direction is the direction in which there is a reaction.
-## Examples
 
 ## Options
+
+## Examples
 
 # Method
 
