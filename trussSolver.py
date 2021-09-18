@@ -72,3 +72,31 @@ for i in range(0, len(elements)):
 for i in range(0, len(reactions)):
     print("The reaction at %d in the %s direction is %5.2f" % (
     reactions[i, 1], reactions[i, 2], results[(len(results) - 3) + i]))
+
+# Visualising
+f = open("results.tex", "w")
+doctext = [r'\documentclass[preview,border={20pt 20pt 20pt 20pt}]{standalone}', r'\usepackage{tikz,pgfplots}', r'\usepackage{fancyvrb}',r'\usepackage{xcolor}' r'\begin{document}', r'\begin{figure}[h]',r'\centering',r'\begin{tikzpicture}', r'\end{tikzpicture}', 
+r'\end{figure}', r'\begin{Verbatim}[commandchars=\\\{\}]',r'\end{Verbatim}',r'\end{document}']
+
+for i in range(0,len(doctext)):
+    f.write(doctext[i]+'\n')
+    
+    if i == 6:
+        for j in range(0,len(nodes)):
+            f.write('\draw node('+str(nodes[j,0])+')[mark size=1pt, color = red] at ('+ str(nodes[j,1]) +','+ str(nodes[j,2]) +') {\pgfuseplotmark{*}};\n')
+            f.write('\draw node[above, red] at ('+ str(nodes[j,1]) +','+ str(nodes[j,2]) +') {' +str(nodes[j,0])+ '};\n')
+        
+        for j in range(0,len(elements)):
+            f.write('\draw[thick] ('+str(elements[j,1])+') -- node[above, blue]{'+ str(elements[j,0]) + '} ('+str(elements[j,2])+');\n')
+
+        for j in range(0,length(reactions)):
+            
+
+    elif i == 9:
+        for i in range(0, len(elements)):
+            f.write("The force in member " + r'\textcolor{blue}' + "{%d} is %5.2f kN\n" % (i + 1, results[i]))
+
+        for i in range(0, len(reactions)):
+            f.write("The reaction at " + r'\textcolor{red}' +"{%d} in the %s direction is %5.2f\n" % (
+            reactions[i, 1], reactions[i, 2], results[(len(results) - 3) + i]))
+
