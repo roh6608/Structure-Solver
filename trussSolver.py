@@ -89,8 +89,8 @@ for i in range(0,len(doctext)):
         for j in range(0,len(elements)):
             f.write('\draw[thick] ('+str(elements[j,1])+') -- node[above, blue]{'+ str(elements[j,0]) + '} ('+str(elements[j,2])+');\n')
 
-        for j in range(0,length(reactions)):
-            
+        for j in range(0,len(reactions)):
+            f.write('\draw[thick] ('+ str(reactions[j,1]) + ') -- ++(-0.25,-0.4330127019) -- ++(0.5,0) -- ('+ str(reactions[j,1]) + ');\n')
 
     elif i == 9:
         for i in range(0, len(elements)):
